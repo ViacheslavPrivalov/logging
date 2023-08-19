@@ -5,9 +5,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InfoServiceImpl implements InfoService{
+    private final Integer port;
 
-    @Value("${server.port}")
-    private Integer port;
+    public InfoServiceImpl(@Value("${server.port}") Integer port) {
+        this.port = port;
+    }
+
     @Override
     public Integer getPort() {
         return port;
